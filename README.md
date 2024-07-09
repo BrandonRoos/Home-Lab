@@ -9,8 +9,8 @@ At the core of my home lab network, I have implemented a pfSense firewall. This 
 ## Managed Switch: VLAN Segmentation
 To further enhance network management, I have incorporated a managed switch configured with three distinct VLANs:
 
--  ** VLAN 1:** The default network for general traffic and device communication.
--  ** VLAN 2:** Dedicated to network media, ensuring that streaming and media devices operate on a separate, optimized network.
+-  **VLAN 1:** The default network for general traffic and device communication.
+-  **VLAN 2:** Dedicated to network media, ensuring that streaming and media devices operate on a separate, optimized network.
 -  **VLAN 3:**  Specifically designed for the test bench, which is completely isolated from other network devices to prevent any unintended interactions or security breaches.
 
   This segmentation ensures that different types of traffic are effectively managed and isolated, providing a structured and secure network environment.
