@@ -39,4 +39,19 @@ The wireless access point in my home lab ensures seamless connectivity for wirel
 
 I use a travel router that connects to my house via a VPN to maintain secure access to my home network while on the go. This setup allows me to securely access my media and other resources from anywhere, providing peace of mind when using potentially untrusted public internet connections. By routing all traffic through the VPN, I ensure that my data remains protected and my home network is accessible no matter where I am.
 
+## Coming Soon
+
+### Virtualizing My Firewall
+
+I'm working on virtualizing my firewall to enhance testing and rollback capabilities. This will allow me to:
+
+- Test new configurations and updates in a virtual environment without affecting my live network.
+- Rollback to previous versions quickly and easily, ensuring minimal downtime in case of issues.
+- Clone my firewall setup for rapid testing and deployment of new settings or troubleshooting scenarios.
+
+
+Stay tuned for more updates on this project!
+
+  
+
 
