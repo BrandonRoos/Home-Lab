@@ -39,6 +39,9 @@ The wireless access point in my home lab ensures seamless connectivity for wirel
 
 I use a travel router that connects to my house via a VPN to maintain secure access to my home network while on the go. This setup allows me to securely access my media and other resources from anywhere, providing peace of mind when using potentially untrusted public internet connections. By routing all traffic through the VPN, I ensure that my data remains protected and my home network is accessible no matter where I am.
 
+## DNS 
+
+
 ## Coming Soon
 
 ### Virtualizing My Firewall
