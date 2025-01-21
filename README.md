@@ -39,8 +39,9 @@ The **wireless access point** extends seamless connectivity to wireless devices 
 I use a **travel router** that connects to my home network via a VPN, allowing secure access to my resources from anywhere. This setup ensures my data is protected when using public or untrusted internet connections. Routing all traffic through the VPN allows me to securely access my home network and media, no matter where I am.
 
 ## DNS: Secure and Privacy-Focused with Quad9
+###Port 53
 
-For DNS resolution, I leverage **Quad9** servers for both IPv4 and IPv6:
+For DNS resolution, I leverage **Quad9** servers for both IPv4 and IPv6 :
 
 - **IPv4:** `9.9.9.9` and `149.112.112.112`
 - **IPv6:** `2620:fe::fe` and `2620:fe::9`
@@ -68,6 +69,9 @@ I’m currently working on **virtualizing my firewall** to enhance testing and r
 - Test new configurations and updates in a virtual environment without affecting my live network.
 - Roll back to previous versions quickly and easily, minimizing downtime in case of issues.
 - Clone my firewall setup for rapid testing and deployment of new configurations or troubleshooting scenarios.
+- Add WireGuard [![WireGuard Documentation](https://img.shields.io/badge/WireGuard-Documentation-blue)](https://docs.netgate.com/pfsense/en/latest/vpn/wireguard/index.html)
+
+
 
 Stay tuned for more updates on this project!
 
