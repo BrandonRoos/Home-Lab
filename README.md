@@ -5,6 +5,7 @@ This home lab setup showcases my expertise in advanced network management and cy
 ![My Network](https://github.com/BrandonRoos/Home-Lab/assets/28285286/5f763551-966a-4570-b032-2314acaba761)
 
 ## Firewall: pfSense and VLANs
+[![pfSense](https://img.shields.io/badge/pfSense-Website-blue)](https://www.pfsense.org/)
 
 At the core of my network is a **pfSense firewall**, a powerful open-source solution that provides advanced security, routing, and VPN capabilities. The pfSense setup is integrated with VLAN configurations to ensure segmented and secure communication across different parts of the network. This allows precise control of traffic flow, ensuring each VLAN operates within its designated boundaries for enhanced security.
 
@@ -26,7 +27,9 @@ The **test bench** is configured on VLAN 3, ensuring it remains fully isolated f
 
 **Network media devices** are assigned to VLAN 2, ensuring that media streaming does not interfere with other network operations. This dedicated VLAN optimizes bandwidth usage and provides a smooth, uninterrupted experience, while maintaining high performance for critical tasks on other VLANs.
 
-## SIEM: Wazuh with Discord Alerts
+## SIEM: Wazuh
+[![Wazuh](https://img.shields.io/badge/Wazuh-Website-blue)](https://wazuh.com/)
+
 
 I have deployed **Wazuh** as my Security Information and Event Management (SIEM) solution for comprehensive security monitoring. Wazuh continuously monitors the network for potential threats and anomalies, providing real-time analysis and alerts. Additionally, I’ve integrated Wazuh with Discord for instant notifications if any devices or services experience downtime. This setup allows for rapid issue resolution and minimizes downtime.
 
@@ -39,14 +42,15 @@ The **wireless access point** extends seamless connectivity to wireless devices 
 I use a **travel router** that connects to my home network via a VPN, allowing secure access to my resources from anywhere. This setup ensures my data is protected when using public or untrusted internet connections. Routing all traffic through the VPN allows me to securely access my home network and media, no matter where I am.
 
 ## DNS: Secure and Privacy-Focused with Quad9
-###Port 53
 
-For DNS resolution, I leverage **Quad9** servers for both IPv4 and IPv6 :
+[![Quad9](https://img.shields.io/badge/Quad9-Website-blue)](https://quad9.net/) 
+
+For DNS resolution on port 53, I leverage **Quad9** servers for both IPv4 and IPv6 :
 
 - **IPv4:** `9.9.9.9` and `149.112.112.112`
 - **IPv6:** `2620:fe::fe` and `2620:fe::9`
 
-**Quad9** is a free DNS service that focuses on security, privacy, and performance by blocking access to known malicious domains using threat intelligence from various cybersecurity partners. Key benefits include:
+**Quad9** is a free DNS service focusing on security, privacy, and performance by blocking access to known malicious domains using threat intelligence from various cybersecurity partners. Key benefits include:
 
 ### Cybersecurity Benefits of Quad9:
 
