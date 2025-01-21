@@ -73,7 +73,9 @@ I’m currently working on **virtualizing my firewall** to enhance testing and r
 - Test new configurations and updates in a virtual environment without affecting my live network.
 - Roll back to previous versions quickly and easily, minimizing downtime in case of issues.
 - Clone my firewall setup for rapid testing and deployment of new configurations or troubleshooting scenarios.
-- Add WireGuard [![WireGuard Documentation](https://img.shields.io/badge/WireGuard-Documentation-blue)](https://docs.netgate.com/pfsense/en/latest/vpn/wireguard/index.html)
+
+### Add WireGuard
+[![WireGuard Documentation](https://img.shields.io/badge/WireGuard-Documentation-blue)](https://docs.netgate.com/pfsense/en/latest/vpn/wireguard/index.html)
 
 
 
