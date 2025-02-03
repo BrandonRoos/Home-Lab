@@ -64,6 +64,28 @@ For DNS resolution on port 53, I leverage **Quad9** servers for both IPv4 and IP
 
 By integrating Quad9 DNS into my home lab, I enhance overall network security and proactively block malicious domains, keeping my environment safe.
 
+## Twingate
+
+[![Twingate](https://img.shields.io/badge/Twingate-Documentation-blue)](https://www.twingate.com/docs/)
+
+To provide my primary travel laptop with safe, zero-trust access, I added **Twingate** to my main server. I can now connect to my server using Twingate without leaving it open to the public, guaranteeing that access is verified and approved by stringent security guidelines. By eliminating the necessity for a conventional VPN, this configuration improves performance and lowers latency while preserving high security. I can now safely oversee my server from any location while concealing my network from possible intruders.  
+
+One of the main benefits of using **Twingate** rather than a conventional VPN is enforcing *least-privilege access*. I can set up rules that will only let my laptop connect to the services required on my primary server rather than giving it full access to my network. This reduces the possible impact of a compromised device and security threats.  
+
+Additionally, only the traffic for my server is routed through the encrypted connection because **Twingate** uses *split tunneling*. This ensures that needless rerouting over my home network doesn't slow down my laptop's normal internet activities, such as browsing or streaming. Simultaneously, the connection is robust and responsive, enabling me to remotely access files, execute administrative commands, and continuously monitor my systems.  
+
+Another significant advantage is that **Twingate** doesn't need a publicly accessible VPN gateway. Conventional VPNs are frequently the target of cyberattacks since they provide an internet entry point. Twingate's method, on the other hand, makes my internal resources **undetectable to unauthorized users**. This indicates that my server is safe from common risks like scanning and brute-force attacks.  
+
+By integrating **Twingate** with **multi-factor authentication (MFA)**, I have also improved access security by ensuring that an attacker would require a second factor to obtain entrance, even if my credentials were compromised. The additional flexibility of creating access controls according to contextual elements like *device security posture, location, and access time* further strengthens my security posture.  
+
+Since I implemented **Twingate**, my remote workflow has dramatically improved. I don't have to worry about complicated firewall restrictions or sluggish VPN connections anymore. The centralized logging and monitoring features also facilitate better insight into access patterns, enabling me to identify and handle potential risks.  
+
+This deployment has significantly enhanced the **security and usability** of my remote server access, consistent with the **Zero Trust Networking** model.  
+
+
+
+
+
 ## Coming Soon
 
 ### Virtualizing My Firewall
