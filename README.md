@@ -2,7 +2,9 @@
 
 This home lab setup showcases my expertise in advanced network management and cybersecurity practices. By utilizing pfSense, VLANs, managed switches, SIEM integration, and secure remote access via a travel router and VPN, I have built a robust and secure environment that supports a wide range of network activities while ensuring optimal performance and security. This project highlights my ability to design, implement, and manage complex network infrastructures, making me well-prepared for roles in network management and cybersecurity.
 
-![My Network](https://github.com/BrandonRoos/Home-Lab/assets/28285286/5f763551-966a-4570-b032-2314acaba761)
+
+<img width="1329" height="1581" alt="Network diagram" src="https://github.com/user-attachments/assets/0b58be9d-5447-4c51-8089-08e980d025c7" />
+
 
 ## Firewall: pfSense and VLANs
 [![pfSense](https://img.shields.io/badge/pfSense-Website-blue)](https://www.pfsense.org/)
