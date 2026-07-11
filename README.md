@@ -213,6 +213,12 @@ Attack techniques are executed against a disposable target, alerts are evaluated
 
 Four VMs share the 32GB host. Memory is managed with **ballooning** so idle VMs release RAM to whichever workload actually needs it.
 
+<div align="center">
+<img width="850" alt="SOC lab architecture" src="./soc-lab-architecture.svg" />
+</div>
+
+<br>
+
 | VM | Role | RAM | Ballooning |
 |:---|:-----|:----|:-----------|
 | **Wazuh** | SIEM — manager, indexer, dashboard (all-in-one) | 8–12GB | **Fixed** — the OpenSearch JVM pre-allocates its heap at startup; ballooning risks OOM-killing the indexer mid-run |
@@ -241,6 +247,7 @@ Deployed as a single-node **all-in-one** install (manager + indexer + dashboard)
 | `443` | TCP | Dashboard (HTTPS) |
 
 <!-- FILL IN AS BUILT -->
+
 **Enrolled agents:**
 
 | Agent | OS | Role |
