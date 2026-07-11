@@ -11,10 +11,10 @@ built for real detection engineering, not just uptime.
 
 ![pfSense](https://img.shields.io/badge/pfSense-212121?style=for-the-badge&logo=pfsense&logoColor=white)
 ![Proxmox](https://img.shields.io/badge/Proxmox_VE-E57000?style=for-the-badge&logo=proxmox&logoColor=white)
-![Wazuh](https://img.shields.io/badge/Wazuh-005C99?style=for-the-badge&logo=wazuh&logoColor=white)
+![Wazuh](https://img.shields.io/badge/Wazuh-005C99?style=for-the-badge)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Kali](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
-![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-C41E3A?style=for-the-badge&logoColor=white)
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-C41E3A?style=for-the-badge)
 
 </div>
 
@@ -22,24 +22,24 @@ built for real detection engineering, not just uptime.
 
 ---
 
-## 📑 Contents
+## Contents
 
 **Part I — Home Network** *(deployed)*
-- [Network Overview](#-network-overview)
-- [Firewall — pfSense](#-firewall--pfsense)
-- [VLAN Segmentation](#-vlan-segmentation)
-- [DNS — Quad9](#-dns--quad9)
-- [Wireless Access Point](#-wireless-access-point)
-- [Remote Access — Twingate & Travel Router](#-remote-access--twingate--travel-router)
-- [Monitoring — Wazuh](#-monitoring--wazuh)
+- [Network Overview](#network-overview)
+- [Firewall — pfSense](#firewall-pfsense)
+- [VLAN Segmentation](#vlan-segmentation)
+- [DNS — Quad9](#dns-quad9)
+- [Wireless Access Point](#wireless-access-point)
+- [Remote Access — Twingate & Travel Router](#remote-access)
+- [Monitoring — Wazuh](#monitoring-wazuh)
 
 **Part II — SOC Detection Lab** *(in progress)*
-- [Lab Overview](#-lab-overview)
-- [Hardware & Hypervisor](#-hardware--hypervisor)
-- [VM Architecture](#-vm-architecture)
-- [SIEM — Wazuh SOC Instance](#-siem--wazuh-soc-instance)
-- [Attack Simulation & Detection Engineering](#-attack-simulation--detection-engineering)
-- [Local AI Log Analysis](#-local-ai-log-analysis)
+- [Lab Overview](#lab-overview)
+- [Hardware & Hypervisor](#hardware-hypervisor)
+- [VM Architecture](#vm-architecture)
+- [SIEM — Wazuh SOC Instance](#siem-wazuh-soc)
+- [Attack Simulation & Detection Engineering](#attack-simulation)
+- [Local AI Log Analysis](#local-ai)
 
 <br>
 
@@ -55,15 +55,19 @@ built for real detection engineering, not just uptime.
 
 ---
 
+<a id="network-overview"></a>
+
 ## 🗺️ Network Overview
 
 This home lab setup showcases my expertise in advanced network management and cybersecurity practices. By utilizing pfSense, VLANs, managed switches, SIEM integration, and secure remote access via a travel router and VPN, I have built a robust and secure environment that supports a wide range of network activities while ensuring optimal performance and security. This project highlights my ability to design, implement, and manage complex network infrastructures, making me well-prepared for roles in network management and cybersecurity.
 
 <div align="center">
-<img width="700" alt="Network diagram" src="https://github.com/user-attachments/assets/0b58be9d-5447-4c51-8089-08e980d025c7" />
+<img width="800" alt="Network diagram" src="./network-diagram.svg" />
 </div>
 
 <br>
+
+<a id="firewall-pfsense"></a>
 
 ## 🔥 Firewall — pfSense
 
@@ -72,6 +76,8 @@ This home lab setup showcases my expertise in advanced network management and cy
 At the core of my network is a **pfSense firewall**, a powerful open-source solution that provides advanced security, routing, and VPN capabilities. The pfSense setup is integrated with VLAN configurations to ensure segmented and secure communication across different parts of the network. This allows precise control of traffic flow, ensuring each VLAN operates within its designated boundaries for enhanced security.
 
 <br>
+
+<a id="vlan-segmentation"></a>
 
 ## 🧩 VLAN Segmentation
 
@@ -88,6 +94,8 @@ A managed switch enforces three distinct VLANs, isolating traffic by function:
 **Network Media (VLAN 2)** keeps media streaming from interfering with other network operations. This dedicated VLAN optimizes bandwidth usage and provides a smooth, uninterrupted experience while maintaining high performance for critical tasks on other VLANs.
 
 <br>
+
+<a id="dns-quad9"></a>
 
 ## 🛡️ DNS — Quad9
 
@@ -109,11 +117,15 @@ IPv6    2620:fe::fe  ·  2620:fe::9
 
 <br>
 
+<a id="wireless-access-point"></a>
+
 ## 📶 Wireless Access Point
 
 The wireless access point extends connectivity to wireless devices while maintaining security and performance standards. It supports **multiple SSIDs, each mapped to a specific VLAN**, ensuring wireless traffic is segmented and managed in line with the overall network design — wireless clients land in the correct security zone rather than a flat wireless network.
 
 <br>
+
+<a id="remote-access"></a>
 
 ## 🔐 Remote Access — Twingate & Travel Router
 
@@ -141,6 +153,8 @@ A **travel router** connects back to my home network over VPN, allowing secure a
 
 <br>
 
+<a id="monitoring-wazuh"></a>
+
 ## 👁️ Monitoring — Wazuh
 
 [![Wazuh](https://img.shields.io/badge/Wazuh-Website-blue?style=flat-square)](https://wazuh.com/)
@@ -163,6 +177,8 @@ A **travel router** connects back to my home network over VPN, allowing secure a
 
 ---
 
+<a id="lab-overview"></a>
+
 ## 🎯 Lab Overview
 
 A dedicated, virtualized SOC lab built to do real detection engineering — not just collect logs. The workflow is a closed loop:
@@ -177,6 +193,8 @@ Attack techniques are executed against a disposable target, alerts are evaluated
 
 <br>
 
+<a id="hardware-hypervisor"></a>
+
 ## 🖥️ Hardware & Hypervisor
 
 | Component | Spec |
@@ -188,6 +206,8 @@ Attack techniques are executed against a disposable target, alerts are evaluated
 | **Hypervisor** | Proxmox VE |
 
 <br>
+
+<a id="vm-architecture"></a>
 
 ## 🧱 VM Architecture
 
@@ -205,6 +225,8 @@ Four VMs share the 32GB host. Memory is managed with **ballooning** so idle VMs 
 > **Design note:** attack simulation *never* runs against real endpoints. The Victim VM exists so techniques can be executed aggressively and reverted from snapshot, with zero risk to machines that matter.
 
 <br>
+
+<a id="siem-wazuh-soc"></a>
 
 ## 📡 SIEM — Wazuh SOC Instance
 
@@ -227,6 +249,8 @@ Deployed as a single-node **all-in-one** install (manager + indexer + dashboard)
 
 <br>
 
+<a id="attack-simulation"></a>
+
 ## ⚔️ Attack Simulation & Detection Engineering
 
 **Atomic Red Team** executes individual, ATT&CK-mapped technique tests against the Victim VM. Each run answers one question: *did the SIEM catch it?*
@@ -243,6 +267,8 @@ Deployed as a single-node **all-in-one** install (manager + indexer + dashboard)
 **Tuning log:** noisy default rules that don't apply to a lab environment are documented and adjusted rather than silently ignored — the reasoning behind each tuning decision is recorded.
 
 <br>
+
+<a id="local-ai"></a>
 
 ## 🤖 Local AI Log Analysis
 
