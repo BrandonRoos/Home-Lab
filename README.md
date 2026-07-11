@@ -2,9 +2,7 @@
 
 This home lab setup showcases my expertise in advanced network management and cybersecurity practices. By utilizing pfSense, VLANs, managed switches, SIEM integration, and secure remote access via a travel router and VPN, I have built a robust and secure environment that supports a wide range of network activities while ensuring optimal performance and security. This project highlights my ability to design, implement, and manage complex network infrastructures, making me well-prepared for roles in network management and cybersecurity.
 
-
 <img width="1329" height="1581" alt="Network diagram" src="https://github.com/user-attachments/assets/0b58be9d-5447-4c51-8089-08e980d025c7" />
-
 
 ## Firewall: pfSense and VLANs
 [![pfSense](https://img.shields.io/badge/pfSense-Website-blue)](https://www.pfsense.org/)
@@ -13,7 +11,7 @@ At the core of my network is a **pfSense firewall**, a powerful open-source solu
 
 ## Managed Switch: VLAN Segmentation
 
-To optimize network management, I’ve implemented a managed switch with three distinct VLANs:
+To optimize network management, I've implemented a managed switch with three distinct VLANs:
 
 - **VLAN 1:** The default network for general traffic and device communication.
 - **VLAN 2:** Dedicated to network media, ensuring that streaming and media devices operate on a separate, optimized network.
@@ -32,8 +30,7 @@ The **test bench** is configured on VLAN 3, ensuring it remains fully isolated f
 ## SIEM: Wazuh
 [![Wazuh](https://img.shields.io/badge/Wazuh-Website-blue)](https://wazuh.com/)
 
-
-I have deployed **Wazuh** as my Security Information and Event Management (SIEM) solution for comprehensive security monitoring. Wazuh continuously monitors the network for potential threats and anomalies, providing real-time analysis and alerts. Additionally, I’ve integrated Wazuh with Discord for instant notifications if any devices or services experience downtime. This setup allows for rapid issue resolution and minimizes downtime.
+I have deployed **Wazuh** as my Security Information and Event Management (SIEM) solution for comprehensive security monitoring. Wazuh continuously monitors the network for potential threats and anomalies, providing real-time analysis and alerts. Additionally, I've integrated Wazuh with Discord for instant notifications if any devices or services experience downtime. This setup allows for rapid issue resolution and minimizes downtime.
 
 ## Wireless Access Point
 
@@ -47,7 +44,7 @@ I use a **travel router** that connects to my home network via a VPN, allowing s
 
 [![Quad9](https://img.shields.io/badge/Quad9-Website-blue)](https://quad9.net/) 
 
-For DNS resolution on port 53, I leverage **Quad9** servers for both IPv4 and IPv6 :
+For DNS resolution on port 53, I leverage **Quad9** servers for both IPv4 and IPv6:
 
 - **IPv4:** `9.9.9.9` and `149.112.112.112`
 - **IPv6:** `2620:fe::fe` and `2620:fe::9`
@@ -57,11 +54,8 @@ For DNS resolution on port 53, I leverage **Quad9** servers for both IPv4 and IP
 ### Cybersecurity Benefits of Quad9:
 
 - **Malware Blocking:** Quad9 automatically blocks domains known for distributing malware, phishing, and botnets, reducing the risk of cyberattacks.
-  
 - **Privacy-Focused:** Unlike many public DNS providers, Quad9 does not store personally identifiable information (PII), ensuring my browsing activity remains private.
-  
 - **Global Threat Intelligence:** Quad9 integrates threat intelligence from over 19 cybersecurity organizations, offering real-time protection against emerging threats.
-  
 - **Resilient Network:** With globally distributed infrastructure, Quad9 provides high availability and redundancy, ensuring fast and reliable DNS resolution even under heavy traffic or network disruptions.
 
 By integrating Quad9 DNS into my home lab, I enhance overall network security and proactively block malicious domains, keeping my environment safe.
@@ -70,42 +64,19 @@ By integrating Quad9 DNS into my home lab, I enhance overall network security an
 
 [![Twingate](https://img.shields.io/badge/Twingate-Documentation-blue)](https://www.twingate.com/docs/)
 
-To provide my primary travel laptop with safe, zero-trust access, I added **Twingate** to my main server. I can now connect to my server using Twingate without leaving it open to the public, guaranteeing that access is verified and approved by stringent security guidelines. By eliminating the necessity for a conventional VPN, this configuration improves performance and lowers latency while preserving high security. I can now safely oversee my server from any location while concealing my network from possible intruders.  
+To provide my primary travel laptop with safe, zero-trust access, I added **Twingate** to my main server. I can now connect to my server using Twingate without leaving it open to the public, guaranteeing that access is verified and approved by stringent security guidelines. By eliminating the necessity for a conventional VPN, this configuration improves performance and lowers latency while preserving high security. I can now safely oversee my server from any location while concealing my network from possible intruders.
 
-One of the main benefits of using **Twingate** rather than a conventional VPN is enforcing *least-privilege access*. I can set up rules that will only let my laptop connect to the services required on my primary server rather than giving it full access to my network. This reduces the possible impact of a compromised device and security threats.  
+One of the main benefits of using **Twingate** rather than a conventional VPN is enforcing *least-privilege access*. I can set up rules that will only let my laptop connect to the services required on my primary server rather than giving it full access to my network. This reduces the possible impact of a compromised device and security threats.
 
-Additionally, only the traffic for my server is routed through the encrypted connection because **Twingate** uses *split tunneling*. This ensures that needless rerouting over my home network doesn't slow down my laptop's normal internet activities, such as browsing or streaming. Simultaneously, the connection is robust and responsive, enabling me to remotely access files, execute administrative commands, and continuously monitor my systems.  
+Additionally, only the traffic for my server is routed through the encrypted connection because **Twingate** uses *split tunneling*. This ensures that needless rerouting over my home network doesn't slow down my laptop's normal internet activities, such as browsing or streaming. Simultaneously, the connection is robust and responsive, enabling me to remotely access files, execute administrative commands, and continuously monitor my systems.
 
-Another significant advantage is that **Twingate** doesn't need a publicly accessible VPN gateway. Conventional VPNs are frequently the target of cyberattacks since they provide an internet entry point. Twingate's method, on the other hand, makes my internal resources **undetectable to unauthorized users**. This indicates that my server is safe from common risks like scanning and brute-force attacks.  
+Another significant advantage is that **Twingate** doesn't need a publicly accessible VPN gateway. Conventional VPNs are frequently the target of cyberattacks since they provide an internet entry point. Twingate's method, on the other hand, makes my internal resources **undetectable to unauthorized users**. This indicates that my server is safe from common risks like scanning and brute-force attacks.
 
-By integrating **Twingate** with **multi-factor authentication (MFA)**, I have also improved access security by ensuring that an attacker would require a second factor to obtain entrance, even if my credentials were compromised. The additional flexibility of creating access controls according to contextual elements like *device security posture, location, and access time* further strengthens my security posture.  
+By integrating **Twingate** with **multi-factor authentication (MFA)**, I have also improved access security by ensuring that an attacker would require a second factor to obtain entrance, even if my credentials were compromised. The additional flexibility of creating access controls according to contextual elements like *device security posture, location, and access time* further strengthens my security posture.
 
-Since I implemented **Twingate**, my remote workflow has dramatically improved. I don't have to worry about complicated firewall restrictions or sluggish VPN connections anymore. The centralized logging and monitoring features also facilitate better insight into access patterns, enabling me to identify and handle potential risks.  
+Since I implemented **Twingate**, my remote workflow has dramatically improved. I don't have to worry about complicated firewall restrictions or sluggish VPN connections anymore. The centralized logging and monitoring features also facilitate better insight into access patterns, enabling me to identify and handle potential risks.
 
-This deployment has significantly enhanced the **security and usability** of my remote server access, consistent with the **Zero Trust Networking** model.  
-
-
-
-
-
-## Coming Soon
-
-### Virtualizing My Firewall
-
-I’m currently working on **virtualizing my firewall** to enhance testing and rollback capabilities. This will allow me to:
-
-- Test new configurations and updates in a virtual environment without affecting my live network.
-- Roll back to previous versions quickly and easily, minimizing downtime in case of issues.
-- Clone my firewall setup for rapid testing and deployment of new configurations or troubleshooting scenarios.
-
-### Add WireGuard
-[![WireGuard Documentation](https://img.shields.io/badge/WireGuard-Documentation-blue)](https://docs.netgate.com/pfsense/en/latest/vpn/wireguard/index.html)
-
-
-
-Stay tuned for more updates on this project!
-
-
+This deployment has significantly enhanced the **security and usability** of my remote server access, consistent with the **Zero Trust Networking** model.
   
 
 
