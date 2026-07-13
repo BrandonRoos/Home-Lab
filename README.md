@@ -61,12 +61,6 @@ built for real detection engineering, not just uptime.
 
 This home lab setup showcases my expertise in advanced network management and cybersecurity practices. By utilizing pfSense, VLANs, managed switches, SIEM integration, and secure remote access via a travel router and VPN, I have built a robust and secure environment that supports a wide range of network activities while ensuring optimal performance and security. This project highlights my ability to design, implement, and manage complex network infrastructures, making me well-prepared for roles in network management and cybersecurity.
 
-<div align="center">
-<img width="800" alt="Network diagram" src="./network-diagram.svg" />
-</div>
-
-<br>
-
 <a id="firewall-pfsense"></a>
 
 ## 🔥 Firewall — pfSense
