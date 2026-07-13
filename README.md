@@ -14,6 +14,7 @@ built for real detection engineering, not just uptime.
 ![Wazuh](https://img.shields.io/badge/Wazuh-005C99?style=for-the-badge)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Kali](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Atomic Red Team](https://img.shields.io/badge/Atomic_Red_Team-D62828?style=for-the-badge)
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-C41E3A?style=for-the-badge)
 
 </div>
@@ -33,7 +34,7 @@ built for real detection engineering, not just uptime.
 - [Remote Access — Twingate & Travel Router](#remote-access)
 - [Monitoring — Wazuh](#monitoring-wazuh)
 
-**Part II — SOC Detection Lab** *(in progress)*
+**Part II — SOC Detection Lab** *(complete — [full writeup ›](https://github.com/BrandonRoos/wazuh-detection-engineering-lab))*
 - [Lab Overview](#lab-overview)
 - [Hardware & Hypervisor](#hardware-hypervisor)
 - [VM Architecture](#vm-architecture)
@@ -165,11 +166,14 @@ A **travel router** connects back to my home network over VPN, allowing secure a
 
 # Part II — SOC Detection Lab
 
-*Virtualized detection-engineering environment. Build in progress.*
+*Virtualized detection-engineering environment. Complete.*
 
 </div>
 
 ---
+
+> **📄 Full writeup — [Wazuh Detection Engineering Lab ›](https://github.com/BrandonRoos/wazuh-detection-engineering-lab)**
+> Attack simulation, detection-gap analysis, and validated fixes — with chronological build notes and deployable `auditd` / Wazuh configs.
 
 <a id="lab-overview"></a>
 
@@ -230,7 +234,7 @@ Four VMs share the 32GB host. Memory is managed with **ballooning** so idle VMs 
 
 ## 📡 SIEM — Wazuh SOC Instance
 
-Deployed as a single-node **all-in-one** install (manager + indexer + dashboard) on a dedicated Ubuntu Server VM — a VM rather than a container, matching how Wazuh is actually deployed in production environments.
+Deployed as a single-node **all-in-one** install of **Wazuh 4.14.6** (manager + indexer + dashboard) on a dedicated Ubuntu Server VM — a VM rather than a container, matching how Wazuh is actually deployed in production environments.
 
 **Firewall rules (pfSense):**
 
@@ -240,13 +244,11 @@ Deployed as a single-node **all-in-one** install (manager + indexer + dashboard)
 | `1515` | TCP | Agent enrollment |
 | `443` | TCP | Dashboard (HTTPS) |
 
-<!-- FILL IN AS BUILT -->
-
-**Enrolled agents:**
+**Enrolled agent:**
 
 | Agent | OS | Role |
 |:------|:---|:-----|
-| *TBD* | *TBD* | *TBD* |
+| `victim-01` | Ubuntu Server 22.04 | Disposable attack-simulation target |
 
 <br>
 
@@ -256,14 +258,15 @@ Deployed as a single-node **all-in-one** install (manager + indexer + dashboard)
 
 **Atomic Red Team** executes individual, ATT&CK-mapped technique tests against the Victim VM. Each run answers one question: *did the SIEM catch it?*
 
-<!-- FILL IN AS TESTED -->
-
 | Technique | ATT&CK ID | Default Ruleset | Action Taken |
 |:----------|:----------|:----------------|:-------------|
-| *e.g. OS Credential Dumping* | `T1003` | ❌ Missed | Custom rule written & validated |
-| *e.g. Command & Scripting Interpreter* | `T1059` | ✅ Caught | — |
+| Bash script — create & execute | `T1059.004` | ❌ Missed | Real-time FIM on `/tmp` → rule 550 validated |
+| System information to file | `T1082` *(test 3)* | ❌ Missed | Same FIM control caught it → rule 550 |
+| Hostname discovery | `T1082` *(test 8)* | ❌ Missed *(no file artifact)* | `auditd` + custom rule 100100 validated |
 
-**Custom rules** are drafted in **Sigma** first — portable and vendor-neutral — then converted to Wazuh's XML rule syntax for deployment. Every rule is validated by re-running the Atomic test and confirming the alert fires.
+**Result:** three detection gaps confirmed and closed with two validated controls — real-time File Integrity Monitoring for fast file activity, and an `auditd`-backed custom correlation rule (**100100**) for activity that leaves no file behind. Full diagnosis, evidence, and deployable configs are in the [Wazuh Detection Engineering Lab ›](https://github.com/BrandonRoos/wazuh-detection-engineering-lab).
+
+**Custom rules** are written and validated directly in Wazuh's XML rule syntax — each confirmed by re-running the Atomic test until the alert fires. (Portable **Sigma** versions for cross-SIEM comparison are the next iteration.)
 
 **Tuning log:** noisy default rules that don't apply to a lab environment are documented and adjusted rather than silently ignored — the reasoning behind each tuning decision is recorded.
 
