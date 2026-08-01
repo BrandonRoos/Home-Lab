@@ -154,7 +154,7 @@ A **travel router** connects back to my home network over VPN, allowing secure a
 
 [![Wazuh](https://img.shields.io/badge/Wazuh-Website-blue?style=flat-square)](https://wazuh.com/)
 
-**Wazuh** runs as the SIEM for the home network, continuously monitoring for threats and anomalies with real-time analysis and alerting. It's integrated with **Discord** for instant notification when devices or services go down, enabling rapid issue resolution and minimal downtime.
+**Wazuh** runs as the SIEM for the home network, continuously monitoring for threats and anomalies with real-time analysis and alerting.
 
 > **Note:** This is the *home network monitoring* instance. A separate, purpose-built Wazuh deployment powers the SOC Detection Lab in Part II — see below.
 
